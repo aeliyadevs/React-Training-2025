@@ -1,3 +1,5 @@
+let todoItems = "";
+
 let inputBox = document.getElementById("input-box");
 inputBox.addEventListener("change", setTaskItem);
 
@@ -19,3 +21,41 @@ function saveTask(e) {
     localStorage.setItem("Tasks", taskArray);
   }
 }
+
+function getItems() {
+  todoItems = localStorage.getItem("Tasks");
+  console.log(todoItems);
+}
+getItems();
+
+let itemsSpace = document.getElementById("task-items");
+
+// create todo list item
+function createItem() {
+  // create main item div
+  let item = document.createElement("div");
+  item.classList.add("item");
+
+  // create child elements
+  let checkbox = document.createElement("input");
+  checkbox.type = "checkbox";
+
+  let itemText = document.createElement("p");
+  itemText.innerHTML = todoItems;
+
+  let progress = document.createElement("div");
+  progress.classList.add("progress");
+
+  let icon = document.createElement("i");
+  icon.classList.add("fa-solid", "fa-xmark");
+
+  // append children to item parent
+  item.appendChild(checkbox);
+  item.appendChild(itemText);
+  item.appendChild(progress);
+  item.appendChild(icon);
+
+  // append children to main parent
+  itemsSpace.appendChild(item);
+}
+createItem();
