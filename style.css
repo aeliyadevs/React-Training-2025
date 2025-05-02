@@ -49,13 +49,27 @@ body {
 }
 .progress {
   width: 100px;
-  height: 15px;
-  background: transparent;
+  height: 8px;
+  background: white;
   border: 1px solid gray;
   border-radius: 50px;
-  transition-duration: 5000ms;
+  transition-duration: 500ms;
+  position: relative;
+}
+.progress::after {
+  content: "";
+  width: 0px;
+  height: 8px;
+  background: green;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transition-duration: 500ms;
 }
 .complete .progress {
-  background: #11b375;
+  /* background: linear-gradient(90deg, green 100%, white 100%); */
   border: 1px solid #11b375;
+}
+.complete .progress::after {
+  width: 100px;
 }

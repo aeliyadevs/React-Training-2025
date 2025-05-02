@@ -3,11 +3,11 @@ let todoItems = [];
 let inputBox = document.getElementById("input-box");
 inputBox.addEventListener("change", setTaskItem);
 
-let task = "";
+let task = {};
 let taskArray = [];
 
 function setTaskItem(event) {
-  task = event.target.value;
+  task = { title: event.target.value, status: "new" };
 }
 
 let addButton = document.getElementById("add-button");
@@ -48,12 +48,16 @@ function createItem() {
       // create main item div
       let item = document.createElement("div");
       item.classList.add("item");
+      if (todoItems[i].status === "completed") {
+        item.classList.add("complete");
+      }
       // create child elements
       let checkbox = document.createElement("input");
+      checkbox.id = "chk-" + (i + 1);
       checkbox.type = "checkbox";
 
       let itemText = document.createElement("p");
-      itemText.innerHTML = todoItems[i];
+      itemText.innerHTML = todoItems[i].title;
 
       let progress = document.createElement("div");
       progress.classList.add("progress");
@@ -77,3 +81,12 @@ function createItem() {
   }
 }
 createItem();
+
+for (i = 0; i < todoItems.length; i++) {
+  const chk = document.getElementById("chk-" + (i + 1));
+  chk.addEventListener("change", markComplete);
+}
+
+function markComplete(e) {
+  e.target.parentElement.classList.toggle("complete");
+}
