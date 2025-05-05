@@ -4,9 +4,10 @@ body {
   margin: 0;
   padding: 0;
   background: linear-gradient(45deg, rgb(6, 147, 218), rgb(9, 185, 120));
+  font-size: 1.2rem;
 }
 .main-area {
-  width: 500px;
+  width: 600px;
   background: white;
   margin: 100px auto 0 auto;
   padding: 15px;
@@ -20,13 +21,16 @@ body {
 .input-area input {
   width: 100%;
   flex: 1;
-  padding: 8px 15px;
+  font-size: 1.2rem;
+  padding: 20px;
   border-radius: 4px;
   border: 1px solid #11b375;
 }
 .input-area button {
   padding: 8px 15px;
   font-weight: 600;
+  width: 140px;
+  font-size: 1.2rem;
   border: none;
   background: #11b375;
   color: white;
@@ -34,8 +38,13 @@ body {
 }
 .task-items .item {
   display: flex;
-  gap: 10px;
   align-items: center;
+  gap: 10px;
+  background: #e0fdfb;
+  margin-top: 15px;
+  margin-bottom: 15px;
+  padding: 10px 20px;
+  border-radius: 6px;
 }
 .task-items .item p {
   flex: 1;
@@ -49,17 +58,18 @@ body {
 }
 .progress {
   width: 100px;
-  height: 8px;
+  height: 12px;
   background: white;
   border: 1px solid gray;
   border-radius: 50px;
+  overflow: hidden;
   transition-duration: 500ms;
   position: relative;
 }
 .progress::after {
   content: "";
   width: 0px;
-  height: 8px;
+  height: 12px;
   background: green;
   position: absolute;
   top: 0;

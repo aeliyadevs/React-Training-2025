@@ -5,6 +5,7 @@ inputBox.addEventListener("change", setTaskItem);
 
 let task = {};
 let taskArray = [];
+let taskIndex = null;
 
 function setTaskItem(event) {
   task = { title: event.target.value, status: "new" };
@@ -42,7 +43,6 @@ let itemsSpace = document.getElementById("task-items");
 function createItem() {
   getItems();
   itemsSpace.innerHTML = "";
-  console.log(todoItems);
   if (todoItems != null) {
     for (i = 0; i < todoItems.length; i++) {
       // create main item div
@@ -88,5 +88,22 @@ for (i = 0; i < todoItems.length; i++) {
 }
 
 function markComplete(e) {
+  for (i = 0; i < todoItems.length; i++) {
+    if (e.target.id == "chk-" + (i + 1)) {
+      taskIndex = i;
+    }
+  }
+  // console.log(taskIndex);
   e.target.parentElement.classList.toggle("complete");
+  todoItems[taskIndex].status = "completed";
+  localStorage.setItem("Tasks", JSON.stringify(todoItems));
+  // console.log(todoItems[taskIndex]);
 }
+
+let students = ["Ram", "Shyam", "Hari", "Sita", "Gita", "Rita"];
+// students.shift("Roshan");
+// console.log(students);
+// students.unshift("Roshan");
+console.log(students);
+students.splice(2, 1);
+console.log(students);
