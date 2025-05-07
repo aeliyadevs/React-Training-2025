@@ -4,7 +4,6 @@ let inputBox = document.getElementById("input-box");
 inputBox.addEventListener("change", setTaskItem);
 
 let task = {};
-let taskArray = [];
 let taskIndex = null;
 
 function setTaskItem(event) {
@@ -20,13 +19,8 @@ function saveTask(e) {
   if (task == "") {
     alert("Enter your task first");
   } else {
-    taskArray.push(task);
-    // console.log(taskArray);
-    // console.log(JSON.stringify(taskArray));
-    localStorage.setItem("Tasks", JSON.stringify(taskArray));
-
-    // count++;
-    // localStorage.setItem("Task" + count, task);
+    todoItems.push(task);
+    localStorage.setItem("Tasks", JSON.stringify(todoItems));
   }
   createItem();
 }
@@ -43,7 +37,7 @@ let itemsSpace = document.getElementById("task-items");
 function createItem() {
   getItems();
   itemsSpace.innerHTML = "";
-  if (todoItems != null) {
+  if (todoItems.length != 0) {
     for (i = 0; i < todoItems.length; i++) {
       // create main item div
       let item = document.createElement("div");
@@ -55,6 +49,9 @@ function createItem() {
       let checkbox = document.createElement("input");
       checkbox.id = "chk-" + (i + 1);
       checkbox.type = "checkbox";
+      if (todoItems[i].status === "completed") {
+        checkbox.checked = true;
+      }
 
       let itemText = document.createElement("p");
       itemText.innerHTML = todoItems[i].title;
@@ -63,7 +60,9 @@ function createItem() {
       progress.classList.add("progress");
 
       let icon = document.createElement("i");
+      icon.id = "icon-" + (i + 1);
       icon.classList.add("fa-solid", "fa-xmark");
+      icon.addEventListener("click", deleteItem);
 
       // append children to item parent
       item.appendChild(checkbox);
@@ -87,23 +86,30 @@ for (i = 0; i < todoItems.length; i++) {
   chk.addEventListener("change", markComplete);
 }
 
+function deleteItem(e) {
+  for (i = 0; i < todoItems.length; i++) {
+    if (e.target.id == "icon-" + (i + 1)) {
+      taskIndex = i;
+    }
+  }
+  todoItems.splice(taskIndex, 1);
+  localStorage.setItem("Tasks", JSON.stringify(todoItems));
+  createItem();
+}
+
 function markComplete(e) {
   for (i = 0; i < todoItems.length; i++) {
     if (e.target.id == "chk-" + (i + 1)) {
       taskIndex = i;
     }
   }
-  // console.log(taskIndex);
-  e.target.parentElement.classList.toggle("complete");
-  todoItems[taskIndex].status = "completed";
-  localStorage.setItem("Tasks", JSON.stringify(todoItems));
-  // console.log(todoItems[taskIndex]);
-}
+  if (todoItems[taskIndex].status == "new") {
+    e.target.parentElement.classList.add("complete");
+    todoItems[taskIndex].status = "completed";
+  } else {
+    e.target.parentElement.classList.remove("complete");
+    todoItems[taskIndex].status = "new";
+  }
 
-let students = ["Ram", "Shyam", "Hari", "Sita", "Gita", "Rita"];
-// students.shift("Roshan");
-// console.log(students);
-// students.unshift("Roshan");
-console.log(students);
-students.splice(2, 1);
-console.log(students);
+  localStorage.setItem("Tasks", JSON.stringify(todoItems));
+}
