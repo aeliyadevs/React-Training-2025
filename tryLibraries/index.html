@@ -12,23 +12,29 @@
       href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap"
       rel="stylesheet"
     />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+    />
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
     <div class="header">
-      <div class="logo">
-        <img src="travele-logo-main.png" alt="Travele Logo" />
+      <div class="wrapper">
+        <div class="logo">
+          <img src="travele-logo-main.png" alt="Travele Logo" />
+        </div>
+        <div class="navigation-menu">
+          <ul>
+            <li>Home</li>
+            <li>Tour</li>
+            <li>Packages</li>
+            <li>Blog</li>
+            <li>Contact</li>
+          </ul>
+        </div>
+        <button class="primary-button">Book Now</button>
       </div>
-      <div class="navigation-menu">
-        <ul>
-          <li>Home</li>
-          <li>Tour</li>
-          <li>Packages</li>
-          <li>Blog</li>
-          <li>Contact</li>
-        </ul>
-      </div>
-      <button class="primary-button">Book Now</button>
     </div>
     <div class="hero-section">
       <div
@@ -39,17 +45,19 @@
         "
       >
         <div class="content">
-          <h1>
+          <h1 class="animate__animated animate__backInUp">
             Experience the<br />
             nature's beauty
           </h1>
-          <p>
+          <p class="animate__animated animate__slideInRight">
             Lorem, ipsum dolor sit amet consectetur adipisicing elit. Cum
             adipisci necessitatibus doloribus voluptate saepe cupiditate
             aperiam. Laudantium hic adipisci explicabo obcaecati tenetur cum
             veniam cumque.
           </p>
-          <button class="primary-button">Continue Reading</button>
+          <button class="primary-button animate__animated animate__zoomInRight">
+            Continue Reading
+          </button>
         </div>
       </div>
     </div>
@@ -67,6 +75,26 @@
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem,
           deserunt quae dolorum explicabo aperiam facere?
         </p>
+        <div class="grid-area">
+          <div class="grid-line horizontal"></div>
+          <div class="grid-line vertical"></div>
+          <div class="grid-item">
+            <img src="icons/icon1.png" alt="Icon 1" />
+            <div class="values"><span>500K+</span> Satisfied Clients</div>
+          </div>
+          <div class="grid-item">
+            <img src="icons/icon2.png" alt="Icon 2" />
+            <div class="values"><span>250K+</span> Satisfied Clients</div>
+          </div>
+          <div class="grid-item">
+            <img src="icons/icon3.png" alt="Icon 3" />
+            <div class="values"><span>15K+</span> Satisfied Clients</div>
+          </div>
+          <div class="grid-item">
+            <img src="icons/icon4.png" alt="Icon 4" />
+            <div class="values"><span>10K+</span> Satisfied Clients</div>
+          </div>
+        </div>
       </div>
     </div>
     <div class="footer">
