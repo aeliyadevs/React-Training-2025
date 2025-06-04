@@ -84,9 +84,10 @@ body {
   z-index: 0;
 }
 .highlights .highlight-image {
-  width: 600px;
-  height: 600px;
+  width: 500px;
+  height: 550px;
   margin: 75px 0;
+  flex: none;
 }
 .highlights .highlight-image img {
   width: 100%;
@@ -126,7 +127,7 @@ body {
   right: 0;
   z-index: -1;
   width: 80%;
-  height: 115%;
+  height: 105%;
   background: #0791be;
 }
 .grid-area {
@@ -164,6 +165,29 @@ body {
   height: 100%;
   width: 1px;
   left: 50%;
+}
+.call-to-action {
+  max-width: 450px;
+  display: flex;
+  align-items: center;
+  gap: 30px;
+  background: white;
+  padding: 30px;
+  box-shadow: 5px 5px 15px #70707035;
+}
+.call-to-action img {
+  width: 50px;
+}
+.call-to-action p {
+  color: #383838;
+  font-weight: 700;
+  font-size: 1.15rem;
+}
+.call-to-action a {
+  color: #f56960;
+  text-decoration: none;
+  font-size: 2rem;
+  font-weight: 900;
 }
 
 .footer {

@@ -1,4 +1,8 @@
-var splideFir = new Splide(".splide-fir");
-var splideSec = new Splide(".splide-sec");
-splideFir.mount();
-splideSec.mount();
+var splide = new Splide(".splide", {
+  autoplay: "play",
+  interval: 5000,
+  type: "loop",
+  //   arrows: false,
+  pagination: false,
+});
+splide.mount();
