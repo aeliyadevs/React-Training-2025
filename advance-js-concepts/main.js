@@ -1,3 +1,4 @@
+import { multiply } from "./imports/js/calcul  
 // JavaScript Function
 
 // function syntax
@@ -46,3 +47,13 @@ console.log(testSum);
 document.getElementById("btnId").addEventListener("click", () => {
   console.log("Hey!");
 });
+
+// short
+// easy
+// advance look / modern practice
+// =>
+// return
+
+// Import and Export in JavaScript
+let multi = multiply(3, 6);
+console.log(multi);
