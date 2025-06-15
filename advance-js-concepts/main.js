@@ -110,3 +110,27 @@ console.log(
 
 const bio = `Hello! My name is ${person.firstName} ${person.middleName} ${person.lastName}. I am ${person.age} years old. My nationality is ${person.nationality}.`;
 console.log(bio);
+
+// template literals syntax `String ${variable}`;
+
+let sentence = document.createElement("p");
+// sentence.innerHTML = `<div>
+//                         <p>My name is <strong>Aeliya Tamang</strong></p>
+//                         <p>My address: Lalitpur</p></div>
+//                       <button>Click Me</button>
+//                     `;
+
+sentence.innerHTML = `Lorem ipsum dolor <strong>${person.firstName}</strong>, sit amet consectetur adipisicing elit. Nemo cumque natus dolorum debitis 
+  vitae quas beatae quos eos minima. Repellendus nulla adipisci quaerat fuga suscipit itaque 
+  facilis ullam quisquam, ${person.age} consequatur ab voluptates reprehenderit aperiam beatae minima corporis 
+  sunt, quam perferendis? Ipsa eaque libero rerum, incidunt eveniet, quis odit illo, dolorem est 
+  modi consequuntur recusandae quos ducimus nisi commodi atque fugiat blanditiis alias veniam 
+  nulla sunt consequatur consectetur fugit sint! Rerum inventore fugiat temporibus quasi animi 
+  debitis, unde sint alias provident, iure, corrupti reprehenderit. Quae repudiandae rerum ipsam 
+  consequuntur aperiam minus ea ex, non sit, incidunt accusantium itaque, dignissimos aliquid 
+  eveniet.`;
+let contentDiv = document.getElementById("content");
+contentDiv.appendChild(sentence);
+console.log(contentDiv);
+
+// synchronous vs asynchronous operations
