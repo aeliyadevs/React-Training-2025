@@ -1,3 +1,5 @@
+import Button from "./Button";
+
 function Header() {
   return (
     <div className="header">
@@ -14,7 +16,8 @@ function Header() {
             <li>Contact</li>
           </ul>
         </div>
-        <button className="primary-button">Book Now</button>
+        {/* <button className="primary-button">Book Now</button> */}
+        <Button buttonText="Book Now" />
       </div>
     </div>
   );

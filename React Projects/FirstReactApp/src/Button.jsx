@@ -1,4 +1,4 @@
-function Button() {
-  return <button className="btn">Button Component</button>;
+function Button(props) {
+  return <button className="primary-button">{props.buttonText}</button>;
 }
 export default Button;
